@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surprise for You</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome, Love!</h1>
+        <p>This is a little surprise I made for you!</p>
+        <a href="roses.html" class="button">See Your Pink Roses</a>
+    </div>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blooming Roses</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="rose-container">
+        <div class="rose">
+            <div class="petals petal1"></div>
+            <div class="petals petal2"></div>
+            <div class="petals petal3"></div>
+            <div class="petals petal4"></div>
+            <div class="petals petal5"></div>
+        </div>
+        <h2>Your Pink Roses Are Blooming!</h2>
+        <a href="index.html" class="button">Go Back</a>
+    </div>
+
+    <script src="animations.js"></script>
+</body>
+</html>
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background: #f7f7f7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+h1, p {
+    margin: 10px;
+}
+
+.button {
+    background-color: #ff6f91;
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 25px;
+    font-size: 1.2rem;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: #ff5b7c;
+}
+
+.rose-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.rose {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin-bottom: 20px;
+}
+
+.petals {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background-color: pink;
+    border-radius: 50%;
+    opacity: 0;
+}
+
+.petal1 { transform: rotate(0deg) translate(40px); }
+.petal2 { transform: rotate(72deg) translate(40px); }
+.petal3 { transform: rotate(144deg) translate(40px); }
+.petal4 { transform: rotate(216deg) translate(40px); }
+.petal5 { transform: rotate(288deg) translate(40px); }
+
+h2 {
+    color: #ff6f91;
+    font-size: 1.5rem;
+}
+window.onload = function() {
+    // Select all petals
+    const petals = document.querySelectorAll('.petals');
+
+    // Animate the petals with a delay to simulate blooming
+    petals.forEach((petal, index) => {
+        setTimeout(() => {
+            petal.style.opacity = 1;
+            petal.style.transition = "all 1s ease";
+            petal.style.transform += " scale(1.5)";
+        }, index * 500); // Delay each petal by 500ms
+    });
+}
